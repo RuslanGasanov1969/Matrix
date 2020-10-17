@@ -1,7 +1,7 @@
 #include "arraylib.h"
-#include <iostream>
 #include <stdlib.h>
 
+#include <iostream>
 using namespace std;
 
 

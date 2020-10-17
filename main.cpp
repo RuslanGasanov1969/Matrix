@@ -4,21 +4,35 @@
 #include <cmath>
 #include <algorithm>
 #include "point.h"
+#include "matrix_lib.h"
 
 #include <iostream>
 double* Merge(double *A, int n1, double *B, int n2);
 double* Merge2(double *A, int n1, double *B, int n2);
 using namespace std;
-void array140();
+void matrix0();
 
 int main()
 {
     srand(time(NULL));
     cout.setf(ios::fixed);
     cout.precision(2);
-    array140();
+    matrix0();
 
     return 0;
+}
+
+void matrix0(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+    int** MI = createMatrix<int>(m, n);
+    MI[1][0] = 77;
+    showMatrix(MI, m, n, 3, 0);
+
+    double** MD = createMatrix<double>(m, n);
+    MD[2][1] = 77.456;
+    showMatrix(MD, m, n);
 }
 
 

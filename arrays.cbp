@@ -37,10 +37,17 @@
 		<Unit filename="arraylib.cpp" />
 		<Unit filename="arraylib.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="matrix_lib.cpp" />
+		<Unit filename="matrix_lib.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
+			<code_completion />
+			<envvars />
+			<debugger />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
