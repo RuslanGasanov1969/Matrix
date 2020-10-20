@@ -10,29 +10,59 @@
 double* Merge(double *A, int n1, double *B, int n2);
 double* Merge2(double *A, int n1, double *B, int n2);
 using namespace std;
-void matrix0();
+void matrix1();
 
 int main()
 {
     srand(time(NULL));
     cout.setf(ios::fixed);
     cout.precision(2);
-    matrix0();
+    matrix1();
 
     return 0;
+}
+
+void matrix1(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    int** M = createMatrix<int>(m, n);
+
+    for (int i=0; i<m; i++){
+        for (int j=0; j<n; j++){
+            M[i][j] = 10*i;
+        }
+    }
+
+    showMatrix(M, m, n, 3, 0);
+    deleteMatrix(M, m);
 }
 
 void matrix0(){
     int m, n;
     cout << " m = "; cin >> m;
     cout << " n = "; cin >> n;
+
     int** MI = createMatrix<int>(m, n);
-    MI[1][0] = 77;
+    fillMatrixRnd(MI, m, n);
     showMatrix(MI, m, n, 3, 0);
 
     double** MD = createMatrix<double>(m, n);
-    MD[2][1] = 77.456;
+    fillMatrixRnd(MD, m, n);
     showMatrix(MD, m, n);
+
+
+    if (MI){
+       showMatrix(MI, m, n, 3, 0);
+    }
+    if (MD){
+       MD[0][0] = 777.0;
+       showMatrix(MD, m, n);
+    }
+
+    deleteMatrix(MI, m);
+    deleteMatrix(MD, m);
 }
 
 
