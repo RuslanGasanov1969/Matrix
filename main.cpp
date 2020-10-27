@@ -10,17 +10,90 @@
 double* Merge(double *A, int n1, double *B, int n2);
 double* Merge2(double *A, int n1, double *B, int n2);
 using namespace std;
-void matrix6();
+void matrix13();
+#define _Debug_
 
 int main()
 {
     srand(time(NULL));
     cout.setf(ios::fixed);
     cout.precision(2);
-    matrix6();
+    matrix13();
 
     return 0;
 }
+
+void matrix13(){
+    int m;
+    cout << " m = "; cin >> m;
+
+    double** M = createMatrix<double>(m, m);
+    fillMatrixRnd(M, m, m);
+    showMatrix(M, m, m);
+
+    for(int k = 0; k < m; k++){
+        for(int j = 0; j < m-k; j++){
+            cout << M[k][j] << " ";
+        }
+        for(int i = k+1; i < m; i++){
+            cout << M[i][m-k-1] << " ";
+        }
+        cout << endl;
+    }
+
+    deleteMatrix(M, m);
+}
+
+
+void matrix11(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    double** M = createMatrix<double>(m, n);
+    fillMatrixRnd(M, m, n);
+    showMatrix(M, m, n);
+
+    for(int i = 0; i < m; i++){
+        if(i % 2 == 0){
+            for(int j = 0; j < n; j++){
+                cout << M[i][j] << " ";
+            }
+        }
+        else{
+            for(int j = n-1; j >= 0; j--){
+                cout << M[i][j] << " ";
+            }
+        }
+        cout << endl;
+    }
+
+    cout << endl;
+
+    deleteMatrix(M, m);
+}
+
+
+void matrix7(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    double** M = createMatrix<double>(m, n);
+    fillMatrixRnd(M, m, n);
+    showMatrix(M, m, n);
+
+    int k;
+    cout << " k = "; cin >> k;
+
+    for(int j = 0; j < n; j++){
+        cout << M[k][j] << " ";
+    }
+    cout << endl;
+
+    deleteMatrix(M, m);
+}
+
 
 void matrix6(){
     int m, n;
@@ -97,6 +170,9 @@ void matrix4(){
     for(int j = 0; j < n; j++){
         M[0][j] = A[j];
     }
+#ifdef _Debug_
+    showMatrix(M, m, n, 3, 0);
+#endif
 
     for(int i = 1; i < m; i++){
         for(int j = 0; j < n; j++){
