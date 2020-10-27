@@ -10,17 +10,105 @@
 double* Merge(double *A, int n1, double *B, int n2);
 double* Merge2(double *A, int n1, double *B, int n2);
 using namespace std;
-void matrix3();
+void matrix6();
 
 int main()
 {
     srand(time(NULL));
     cout.setf(ios::fixed);
     cout.precision(2);
-    matrix3();
+    matrix6();
 
     return 0;
 }
+
+void matrix6(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    int* A = createIntArray(n);
+    FillIntArray(A, n);
+    ShowIntArray(A, n);
+
+    int** M = createMatrix<int>(m, n);
+
+    for(int j = 0; j < n; j++){
+        M[0][j] = A[j];
+    }
+
+    int d;
+    cout << " d = "; cin >> d;
+
+    for(int i = 1; i < m; i++){
+        for(int j = 0; j < n; j++){
+            M[i][j] = M[i-1][j] * d;
+        }
+    }
+
+
+    showMatrix(M, m, n, 3, 0);
+    deleteMatrix(M, m);
+}
+
+
+void matrix5(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    int* A = createIntArray(m);
+    FillIntArray(A, m);
+    ShowIntArray(A, m);
+
+    int** M = createMatrix<int>(m, n);
+
+
+    for(int i = 0; i < m; i++){
+        M[i][0] = A[i];
+    }
+
+    int d;
+    cout << " d = "; cin >> d;
+
+    for(int j = 1; j < n; j++){
+        for(int i = 0; i < m; i++){
+            M[i][j] = M[i][j-1] + d;
+        }
+    }
+
+
+    showMatrix(M, m, n, 3, 0);
+    deleteMatrix(M, m);
+}
+
+
+void matrix4(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    int* A = createIntArray(n);
+    FillIntArray(A, n);
+    ShowIntArray(A, n);
+
+    int** M = createMatrix<int>(m, n);
+
+    for(int j = 0; j < n; j++){
+        M[0][j] = A[j];
+    }
+
+    for(int i = 1; i < m; i++){
+        for(int j = 0; j < n; j++){
+            M[i][j] = M[i-1][j];
+        }
+    }
+
+
+    showMatrix(M, m, n, 3, 0);
+    deleteMatrix(M, m);
+}
+
 
 void matrix3(){
     int m, n;
