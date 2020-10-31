@@ -10,7 +10,7 @@
 double* Merge(double *A, int n1, double *B, int n2);
 double* Merge2(double *A, int n1, double *B, int n2);
 using namespace std;
-void matrix13();
+void matrix12();
 #define _Debug_
 
 int main()
@@ -18,7 +18,7 @@ int main()
     srand(time(NULL));
     cout.setf(ios::fixed);
     cout.precision(2);
-    matrix13();
+    matrix12();
 
     return 0;
 }
@@ -40,6 +40,34 @@ void matrix13(){
         }
         cout << endl;
     }
+
+    deleteMatrix(M, m);
+}
+
+void matrix12(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    double** M = createMatrix<double>(m, n);
+    fillMatrixRnd(M, m, n);
+    showMatrix(M, m, n);
+
+    for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(j % 2 == 0){
+                    cout << setw(6) << M[i][j];
+                }
+                else{
+                    cout << setw(6) << M[m-1-i][j];
+                }
+                cout << " ";
+            }
+
+        cout << endl;
+    }
+
+    cout << endl;
 
     deleteMatrix(M, m);
 }
@@ -71,6 +99,66 @@ void matrix11(){
     cout << endl;
 
     deleteMatrix(M, m);
+}
+
+void matrix10(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    double** M = createMatrix<double>(m, n);
+    fillMatrixRnd(M, m, n);
+    showMatrix(M, m, n);
+
+    for(int i = 0; i < m; i++){
+        for(int j = 1; j < n; j+=2){
+            cout << M[i][j] << "    ";
+        }
+        cout << endl;
+    }
+
+    deleteMatrix(M, m);
+}
+
+
+void matrix9(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    double** M = createMatrix<double>(m, n);
+    fillMatrixRnd(M, m, n);
+    showMatrix(M, m, n);
+
+    for(int i = 0; i < m; i+=2){
+        for(int j = 0; j < n; j++){
+            cout << M[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    deleteMatrix(M, m);
+}
+
+
+void matrix8(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    double** M = createMatrix<double>(m, n);
+    fillMatrixRnd(M, m, n);
+    showMatrix(M, m, n);
+
+    int k;
+    cout << " k = "; cin >> k;
+
+    for(int i = 0; i < m; i++){
+        cout << M[i][k] << " ";
+    }
+    cout << endl;
+
+    deleteMatrix(M, n);
 }
 
 
