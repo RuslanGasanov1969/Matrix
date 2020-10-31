@@ -6,6 +6,43 @@
 using namespace std;
 
 template <class T>
+T getColProd(T** matr, int m, int n, int col){
+    T prod = 1;
+    for(int i = 0; i < m; i++){
+        prod = prod * matr[i][col];
+    }
+    return prod;
+}
+
+template <class T>
+T getColSum(T** matr, int m, int n, int col){
+    T sum = 0;
+    for(int i = 0; i < m; i++){
+        sum = sum + matr[i][col];
+    }
+    return sum;
+}
+
+
+template <class T>
+T getRowProd(T** matr, int m, int n, int row){
+    T prod = 1;
+    for(int j = 0; j < n; j++){
+        prod = prod * matr[row][j];
+    }
+    return prod;
+}
+
+template <class T>
+T getRowSum(T** matr, int m, int n, int row){
+    T sum = 0;
+    for(int j = 0; j < n; j++){
+        sum = sum + matr[row][j];
+    }
+    return sum;
+}
+
+template <class T>
 void deleteMatrix(T**& matr, int m){
     for (int i=0; i<m; i++)
     {

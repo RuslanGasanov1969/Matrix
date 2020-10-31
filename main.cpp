@@ -10,7 +10,7 @@
 double* Merge(double *A, int n1, double *B, int n2);
 double* Merge2(double *A, int n1, double *B, int n2);
 using namespace std;
-void matrix12();
+void matrix17();
 #define _Debug_
 
 int main()
@@ -18,10 +18,32 @@ int main()
     srand(time(NULL));
     cout.setf(ios::fixed);
     cout.precision(2);
-    matrix12();
+    matrix17();
 
     return 0;
 }
+
+void matrix17(){
+    int m, n;
+    cout << " m = "; cin >> m;
+    cout << " n = "; cin >> n;
+
+    double** M = createMatrix<double>(m, n);
+    fillMatrixRnd(M, m, n);
+    showMatrix(M, m, n);
+
+    int k;
+    cout << " k = "; cin >> k;
+
+    double sum = getRowSum(M, m, n, k);
+    cout << " sum = " << sum << endl;
+
+    double prod =getRowProd(M, m, n, k);
+    cout << " prod = " << prod << endl;
+
+    deleteMatrix(M, m);
+}
+
 
 void matrix13(){
     int m;
@@ -158,7 +180,7 @@ void matrix8(){
     }
     cout << endl;
 
-    deleteMatrix(M, n);
+    deleteMatrix(M, m);
 }
 
 
